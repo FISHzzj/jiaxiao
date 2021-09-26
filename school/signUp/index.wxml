@@ -1,0 +1,13 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-09-04 22:51:56
+ * @LastEditTime: 2021-09-04 22:57:45
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \windy_wxapp\school\signUp\index.wxml
+-->
+<view class="top">
+  <view class="item" wx:for="{{10}}" wx:key="index">
+    <image mode="widthFix" class="pic" src="/static/images/carve/coupon-share.png" />
+  </view>
+</view>

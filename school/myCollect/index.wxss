@@ -1,0 +1,43 @@
+.flex_between {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+view,
+scroll-view {
+  box-sizing: border-box;
+}
+.ali_center {
+  align-items: center;
+  -webkit-align-items: center;
+}
+.flex_center {
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.flex_around {
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+}
+.list {
+  padding: 30rpx;
+}
+.list .item {
+  background-color: #fff;
+  margin-bottom: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  padding: 10rpx;
+}
+.list .item .schoolInfo {
+  padding: 10rpx 0;
+}
+.list .item .schoolInfo .logo {
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 20rpx;
+  border-bottom: 5rpx;
+}
+.list .item .schoolInfo .info {
+  width: 540rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}

@@ -1,0 +1,86 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-09-02 22:03:21
+ * @LastEditTime: 2021-09-04 23:05:12
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \windy_wxapp\school\detail\index.wxml
+-->
+<view class="top flex ali_center flex_center">
+  <image class="logo" src="{{logo}}"></image>
+  <view class="name">{{merchname}}</view>
+</view>
+<view class="nav flex ali_center flex_around">
+  <view class="item {{active == 0?'on':''}}" data-active="0" bindtap="changeNav">东区</view>
+  <view class="item {{active == 1?'on':''}}" data-active="1" bindtap="changeNav">西区</view>
+  <view class="item {{active == 2?'on':''}}" data-active="2" bindtap="changeNav">教务人员</view>
+  <view class="item {{active == 3?'on':''}}" data-active="3" bindtap="changeNav">学生评论</view>
+</view>
+<view class="eastArea" wx:if="{{active == 0}}">
+  <view class="title">东区</view>
+  <scroll-view class="list" scroll-x="true">
+    <view class="item" >
+      <!-- <image class="img" src="/static/images/\carve/coupon-share.png"></image> -->
+      <video class="img" src="{{east_info.east_vedio}}"></video>
+    </view>
+  </scroll-view>
+  <view class="title">校车接送时间: {{east_info.east_time}}</view>
+  <!-- <view class="time">2021-20-20 14:14:14 - 2021-20-20 14:14:14</view> -->
+  <view class="imgs">
+    <view class="item" wx:for="{{east_info.east_thumbs}}" wx:key="{{index}}">
+      <image mode="widthFix" class="img" src="{{item}}"></image>
+    </view>
+  </view>
+</view>
+<view class="eastArea" wx:if="{{active == 1}}">
+  <view class="title">西区</view>
+  <scroll-view class="list" scroll-x="true">
+    <view class="item">
+      <video class="img" src="{{west_info.west_vedio}}"></video>
+    </view>
+  </scroll-view>
+  <view class="title">校车接送时间:{{east_info.east_time}}</view>
+  <!-- <view class="time">2021-20-20 14:14:14 - 2021-20-20 14:14:14</view> -->
+  <view class="imgs">
+    <view class="item" wx:for="{{west_info.west_thumbs}}" wx:key="{{index}}">
+      <image mode="widthFix" class="img" src="{{item}}"></image>
+    </view>
+  </view>
+
+</view>
+<view class="list" wx:if="{{active == 2}}">
+
+  <view class="flex item" wx:for="{{list}}" wx:key="{{index}}">
+    <image class="avatar" src="{{item.thumb}}"></image>
+    <view class="infos">
+      <view class="nickname">姓名： {{item.catename}}</view>
+      <view class="nickname">职位： {{item.position}}</view>
+      <view class="nickname">电话： {{item.mobile}}</view>
+    </view>
+  </view>
+
+</view>
+<view class="reply" wx:if="{{active == 3}}">
+  <view class="item" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="userInfo flex ali_center">
+      <image class="avatar" src="{{item.avatar}}"></image>
+      <view class="infos">
+        <view class="nickname">{{item.nickname}}</view>
+        <view class="addtime">{{item.createtime}}</view>
+      </view>
+    </view>
+    <view class="content">{{item.content}}</view>
+  </view>
+</view>
+<view class="fui-loading" wx:if="{{loading && (active == 2 || active == 3) }}">
+  <view class="icon"></view>
+  <view class="text">正在加载</view>
+</view>
+<view class="fui-loading empty" wx:if="{{loaded&&list.length>0 && (active == 2 || active == 3)}}">
+  <view class="text">没有更多了</view>
+</view>
+<view class="fui-loading empty" wx:if="{{total<=0&&!loading && (active == 2 || active == 3)}}">
+  <view class="text">没有数据</view>
+</view>
+<view style="height:130rpx"></view>
+<view  class="submit" bindtap="baoming">立即报名</view>

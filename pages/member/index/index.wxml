@@ -1,0 +1,49 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-09-01 21:49:29
+ * @LastEditTime: 2021-09-03 23:10:15
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit  
+ * @FilePath: \windy_wxapp\pages\member\index\index.wxml
+-->
+<view class="top flex ali_center">
+    <image class="avatar" :src="{member.avatar|| '/static/images/carve/coupon-get.png'}"></image>
+    <view class="infos" wx:if="{{member.nickname}}">
+        <view class="nickname">{{member.nickname}}</view>
+        <view class="sign">个性签名</view>
+    </view>
+    <!-- <view class="getinfo">授权登录</view> -->
+    <navigator class="btn getinfo" hoverClass="btn-hover" openType="navigate" url="/pages/auth/index" wx:if="{{!member.nickname}}">授权登录</navigator>
+</view>
+<view class="nav flex flex_between ali_center">
+    <navigator class="item flex ali_center flex_center" hoverClass="none" url="/school/mySchool/index" >
+        <image class="pic" src="/static/images/carve/coupon-get.png"></image>
+        <text class="a">我的学校</text>
+    </navigator>
+    <navigator class="item flex ali_center flex_center" hoverClass="none" url="/school/myCollect/index" >
+        <image class="pic" src="/static/images/carve/coupon-get.png"></image>
+        <text class="a">我的收藏</text>
+    </navigator>
+</view>
+<view class="list">
+    <view class="title">服务</view>
+    <view class="item flex flex_between ali_center" bindtap="getkefu">
+        <view class="left flex ali_center">
+            <image class="pic" src="/static/images/school/login.png"></image>
+            <view class="a">联系客服</view>
+        </view>
+        <image class="pic" src="/static/images/school/arrow.png"></image>
+    </view>
+    <!-- <navigator class="item flex flex_between ali_center" hoverClass="none" openType="switchTab" url="/pages/member/cart/index">
+        <view class="left flex ali_center">
+            <image class="pic" src="/static/images/school/login.png"></image>
+            <view class="a">登录/注册</view>
+        </view>
+        <image class="pic" src="/static/images/school/arrow.png"></image>
+    </navigator> -->
+</view>
+<view class="mask" wx:if="{{showkefu}}" bindtap="closekefu"></view>
+<view class="serviceMask flex flex_center ali_center" wx:if="{{showkefu}}">
+    <image class="pic" src="{{code}}"></image>
+    <text class="a">电话:{{mobile}}</text>
+</view>

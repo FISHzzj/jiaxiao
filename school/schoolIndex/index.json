@@ -1,0 +1,10 @@
+{
+  "backgroundColor": "#fafafa",
+  "navigationBarTitleText": "学校",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "usingComponents": {}
+
+}

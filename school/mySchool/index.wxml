@@ -1,0 +1,39 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-09-11 15:40:48
+ * @LastEditTime: 2021-09-11 16:15:09
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \windy_wxapp\school\mySchool\index.wxml
+-->
+<view class="list">
+    <view class="item" wx:for="{{list}}" :key="{{index}}">
+        <view class="top">编号：{{item.id}}</view>
+        <view class="schoolInfo flex ali_center">
+            <image class="logo" src="{{item.logo}}"></image>
+            <view class="info">
+                <view class="name flex flex_between">
+                    <text class="a">{{item.merchname}}</text>
+                    <text class="b">￥{{item.price}}</text>
+                </view>
+                <view class="name">{{item.citys}} {{item.area}}</view>
+                <view class="name">时间 {{item.createtime}}</view>
+            </view>
+        </view>
+        <view class="bottom">
+            <view class="item1">联系人：{{item.username}}</view>
+            <view class="item1">电话： {{item.mobile}}</view>
+            <view class="item1">备注： {{item.remark}}</view>
+        </view>
+    </view>
+</view>
+<view class="fui-loading" wx:if="{{loading}}">
+    <view class="icon"></view>
+    <view class="text">正在加载</view>
+  </view>
+  <view class="fui-loading empty" wx:if="{{loaded&&list.length>0}}">
+    <view class="text">没有更多了</view>
+  </view>
+  <view class="fui-loading empty" wx:if="{{total<=0&&!loading}}">
+    <view class="text">没有数据</view>
+  </view>

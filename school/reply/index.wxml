@@ -1,0 +1,19 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-09-11 11:29:20
+ * @LastEditTime: 2021-09-11 15:38:43
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \windy_wxapp\school\reply\index.wxml
+-->
+<view class="list">
+    <view class="item flex ali_center">
+        <view class="label">标题</view>
+        <input type="text" placeholder="请输入标题" bindblur="getvalue" value="{{title}}" />
+    </view>
+    <view class="item flex">
+        <view class="label">内容</view>
+        <textarea class="content" name="" placeholder="请输入评价内容" id="" cols="30" rows="10" bindblur="getcontent" value="{{content}}"></textarea>
+    </view>
+    <view class="submit" bindtap="tijiao">提交</view>
+</view>

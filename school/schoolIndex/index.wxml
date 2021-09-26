@@ -1,0 +1,60 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-09-02 21:14:25
+ * @LastEditTime: 2021-09-04 23:09:27
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \windy_wxapp\school\schoolIndex\index.wxml
+-->
+<view class="top flex ali_center">
+  <view class="left flex ali_center" bindtap="dingwei">
+    <image class="pic" src="/static/images/location.png" />
+    <text class="a">定位</text>
+  </view>
+  <view class="right flex ali_center">
+    <image class="pic" src="/static/images/tabbar/icon-19.png" />
+    <!-- <text class="a">搜索</text> -->
+    <input type="text" class="shousuo" placeholder="请输入学校名称" value="{{keyword}}" bindblur="shousuoblur" />
+  </view>
+  <view bindtap="shousuo" class="shousuobtn">搜索</view>
+</view>
+<view class="list">
+  <view class="item" wx:if="{{list.length>0}}" wx:for="{{list}}" wx:key="{{index}}">
+    <view class="top flex ali_center">
+      <image class="pic" src="{{item.logo}}" />
+      <text class="name">{{item.merchname}}</text>  
+    </view>
+    <navigator open-type="navigate" url="/school/detail/index?id={{item.id}}">
+      <image class="cover" src="{{item.cover}}" />
+    </navigator>
+    <view class="bottom flex flex_between ali_center">
+      <navigator open-type="navigate" class="item flex ali_center" url="/school/reply/index?id={{item.id}}&type=xuesheng">
+        <image class="icon" src="/static/images/school/pinglun.png"></image>
+        <text class="a">{{item.comment}}</text>
+      </navigator>
+      <view class="item flex ali_center" data-id="{{item.id}}" data-deleted="{{item.is_favorite}}" bindtap="shoucang">
+        <image class="icon" src="/static/images/school/star.png"></image>
+        <text class="a">{{item.collection}}</text>
+      </view>
+      <view class="item flex ali_center" data-id="{{item.id}}" data-deleted="{{item.is_total}}"  bindtap="dianzan">
+        <image class="icon" src="/static/images/school/zan.png"></image>
+        <text class="a">{{item.totals}}</text>
+      </view>
+      <view class="item flex ali_center">
+        <image class="icon" src="/static/images/school/juli.png"></image>
+        <text class="a">{{item.distance}}km</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="fui-loading" wx:if="{{loading}}">
+  <view class="icon"></view>
+  <view class="text">正在加载</view>
+</view>
+<view class="fui-loading empty" wx:if="{{loaded&&list.length>0}}">
+  <view class="text">没有更多了</view>
+</view>
+<view class="fui-loading empty" wx:if="{{total<=0&&!loading}}">
+  <view class="text">没有数据</view>
+</view>

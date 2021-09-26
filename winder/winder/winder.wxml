@@ -1,0 +1,91 @@
+
+<template name="tpl_list">
+  <view class="fui-goods-item">
+        <navigator hoverClass="none" openType="navigate" url="{{item.bargain>0?'../../../bargain/detail/detail?id='+item.bargain:'/pages/goods/detail/index?id='+item.id}}">
+            <view class="image" style="background-image:url({{item.thumb}})"></view>
+            <image class="salez" src="{{item.saleout}}" wx:if="{{item.saleout&&item.cansee<=0||item.saleout&&item.cansee>0&&item.seecommission<=0}}"></image>
+            <view class="goods-Commission" wx:if="{{item.cansee>0&&item.seecommission>0}}">{{item.seetitle}}￥{{item.seecommission}}</view>
+        </navigator>
+        <view class="detail goods_list_detail">
+            <navigator hoverClass="none" openType="navigate" url="{{item.bargain>0?'../../../bargain/detail/detail?id='+item.bargain:'/pages/goods/detail/index?id='+item.id}}">
+                <view class="name">
+                    <text class="cycle-tip" wx:if="{{item.type==9}}">周期购</text>
+                    <text class="cycle-tip" wx:if="{{item.bargain>0}}">砍价</text>
+                    <text>{{item.title}}</text>
+                </view>
+            </navigator>
+            <view class="original_price">
+                <text wx:if="{{item.productprice>0}}">¥{{item.productprice}}</text>
+            </view>
+            <view class="price">
+                <view class="text">¥{{item.minprice}}</view>
+                <view bindtap="selectPicker" data-buytype="buy" data-home="1" data-id="{{item.id}}" hidden="{{item.total<=0}}" wx:if="{{item.type!=9&&item.type!=5&&item.bargain==0}}">
+                    <text class="buy icox icox-gouwuche buybtnbtn buybtn-5" style="color:#ff5555"></text>
+                </view>
+                <navigator class="buy buybtnbtn buybtn-1 " style="" url="/pages/goods/detail/index?id={{item.id}}" wx:if="{{item.type==9&&item.bargain==0}}">详情</navigator>
+                <navigator class="buy buybtnbtn buybtn-1" style="" url="/pages/goods/detail/index?id={{item.id}}" wx:if="{{item.type==5&&item.bargain==0}}">详情</navigator>
+                <navigator class="buy buybtnbtn buybtn-1" style="" url="../../../bargain/detail/detail?id={{item.bargain}}" wx:if="{{item.bargain>0}}">详情</navigator>
+            </view>
+        </view>
+    </view>
+</template>
+<view class="page navbar goodslist">
+    <view class="fui-header">
+        <view class="searchbar">
+            <icon size="18" type="search"></icon>
+            <input bindconfirm="bindSearch" bindfocus="bindFocus" bindinput="bindInput" focus="{{focusin}}" name="search" placeholder="输入基地关键字，查看WINDY实时天气" value="{{params.keywords}}"></input>
+        </view>
+        <view bindtap="bindback" class="cancel" >取消</view>
+    </view>
+    <view class="list-search" wx:if="{{isshow}}">
+      <block  wx:for="{{searchdata}}" wx:key="*this">
+        <view bindtap="passQuery"  data-url="{{'/winder/winderto/index?appid='+ item.appid + '&spotid='+ item.spotid }}" data-name="{{item.name}}" >{{item.name}}</view>
+        <!-- <navigator hoverClass="none" openType="navigate">222222</navigator>
+        <navigator hoverClass="none" openType="navigate">33333333</navigator> -->
+      </block>
+      
+    </view>
+    <view class="swiper-container">
+
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{swiperCurrent}}" bindchange="swiperChange" class="swiper">
+
+        <block wx:for="{{imgUrls}}" wx:key="*this">
+
+          <swiper-item  >
+
+            <image src="{{item.logo}}" class="img" bindtap="swipclick" data-url="{{'/winder/winderto/index?appid='+ item.appid + '&spotid='+ item.spotid }}"  data-name="{{item.name}}" />
+
+          </swiper-item>
+
+        </block>
+
+      </swiper>
+
+    </view>
+     <view class="fui-goods-group block ">
+        <template is="tpl_list" data="{{item:item}}" wx:for="{{list}}" wx:key="*this"></template>
+    </view>
+    <view class="ad">
+      <view class="swiper-container">
+
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{duration}}" current="{{adswiperCurrent}}" bindchange="adswiperChange" class="swiper">
+
+          <block wx:for="{{adimgUrls}}" wx:key="*this">
+
+            <swiper-item  >
+
+              <image src="{{item.logo}}" class="img" bindtap="adswipclick" data-url="{{item.code}}"   />
+
+            </swiper-item>
+
+          </block>
+
+        </swiper>
+
+      </view>
+    </view>
+    <view class="codeimg" wx:if="{{iscode}}" bindtap="codeclick" >
+        <image src="{{adcode}}"></image>
+    </view>
+</view>
+

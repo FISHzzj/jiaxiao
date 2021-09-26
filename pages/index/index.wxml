@@ -1,0 +1,41 @@
+<view class="swiper">
+    <swiper class="banner" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <swiper-item wx:for="{{banner}}" class="item" wx:key="{{index}}">
+            <navigator>
+                <image class="pic" src="{{item.thumb}}"></image>
+            </navigator>
+        </swiper-item>
+    </swiper>
+</view>
+<!-- 咨讯 -->
+<view class="list">
+    <!-- <view class="zixun">咨讯</view> -->
+    <view class="item" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{item.type == 0}}">
+        <navigator hoverClass="none" class="top flex1" url="/school/zixundetail/index?id={{item.id}}">
+            <view class="content line2">{{item.title}}</view>
+            <image class="pic" wx:for="{{item.thumbs}}" :key="{{index}}"  src="{{item}}"></image>
+        </navigator>
+        <navigator  hoverClass="none" url="/school/reply/index?id={{item.id}}"  class="bottom flex1 ali_center">
+            <!-- <image src="{{item.thumb}}" class="avatar" ></image> -->
+            <view class="nickname">咨讯新闻</view>
+            <text class="plnum">评论{{item.comment_total}}</text>
+            <!-- <text class="time">1小时前</text> -->
+        </navigator>
+    </view>
+</view>
+<!-- 标题 -->
+<view class="list">
+    <!-- <view class="zixun">标题</view> -->
+    <view class="item" wx:for="{{list}}" wx:key="{{index}}" wx:if="{{item.type == 1}}">
+        <view class="top1">
+            <view class="content line2">{{item.title}}</view>
+            <image class="pic" wx:for="{{item.thumbs}}" :key="{{index}}" src="{{item}}"></image>
+        </view>
+        <view class="bottom flex1 ali_center">
+            <!-- <image  src="{{item.thumb}}" class="avatar"></image> -->
+            <view class="nickname">标题</view>
+            <text class="plnum">评论{{item.comment_total}}</text>
+            <!-- <text class="time">1小时前</text> -->
+        </view>
+    </view>
+</view>

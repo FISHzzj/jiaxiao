@@ -1,0 +1,2 @@
+<!--pages/winderto/index.wxml-->
+<web-view src="{{urlnav}}"></web-view>

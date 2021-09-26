@@ -1,0 +1,39 @@
+/* school/baoming/index.wxss */
+
+.eastArea {
+  background-color: #fff;
+}
+.eastArea .title {
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 36rpx;
+}
+.eastArea .list {
+  padding: 0 30rpx;
+  white-space: nowrap;
+}
+.eastArea .list .item {
+  width: 690rpx;
+  display: inline-block;
+}
+.eastArea .list .item .img {
+  width: 690rpx;
+  height: 300rpx;
+  margin-bottom: 20rpx;
+}
+.eastArea .time {
+  color: #999;
+  font-size: 26rpx;
+  padding: 0 30rpx;
+  line-height: 40rpx;
+}
+.eastArea .imgs {
+  padding: 40rpx 30rpx;
+}
+.eastArea .imgs .item {
+  width: 690rpx;
+}
+.eastArea .imgs .item .img {
+  width: 690rpx;
+  margin-bottom: 20rpx;
+}

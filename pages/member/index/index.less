@@ -1,0 +1,109 @@
+.flex_between {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+view,scroll-view {
+  box-sizing: border-box;
+}
+.ali_center {
+  align-items: center;
+  -webkit-align-items: center;
+}
+.flex_center {
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.flex_around {
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+}
+.top {
+  padding: 30rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  .avatar {
+    width: 90rpx;
+    height: 90rpx;
+    margin-right: 20rpx;
+  }
+  .infos {
+    width: 550rpx;
+  }
+  .nickname {
+
+  }
+  .sign {
+    color: #666;
+    font-size: 26rpx;
+  }
+}
+.nav {
+  .item {
+    width: 355rpx;
+    padding: 20rpx 0;
+    background: #fff;
+    .pic {
+      width: 80rpx;
+      height: 80rpx;
+      margin-right: 20rpx;
+    }
+    .a {
+      font-size: 28rpx;
+    }
+  }
+}
+.list {
+  background: #fff;
+  margin-top: 20rpx;
+  .title {
+    padding: 0 30rpx;
+    border-bottom: 1rpx solid #eee;
+    line-height: 86rpx;
+    font-weight: 700;
+  }
+  .item {
+    padding: 0 30rpx;
+    border-bottom: 1rpx solid #eee;
+    height: 100rpx;
+    .left {
+      .pic {
+        width: 60rpx;
+        height: 60rpx;
+        margin-right: 20rpx;
+      }
+      .a {
+        font-size: 28rpx;
+      }
+    }
+    >.pic {
+      width: 50rpx;
+      height: 50rpx;
+    }
+  }
+}
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+}
+.serviceMask {
+  position: fixed;
+  flex-direction: column;
+  width: 650rpx;
+  left: 50rpx;
+  top: 0;
+  bottom: 0;
+  height: 700rpx;
+  margin: auto 0;
+  display: none;
+  .pic {
+    width: 650rpx;
+    height: 650rpx;
+  }
+  .a {
+    color: #fff;
+  }
+}

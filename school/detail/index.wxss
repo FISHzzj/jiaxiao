@@ -1,0 +1,133 @@
+.flex_between {
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+}
+view,
+scroll-view {
+  box-sizing: border-box;
+}
+.ali_center {
+  align-items: center;
+  -webkit-align-items: center;
+}
+.flex_center {
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.flex_around {
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+}
+.top {
+  height: 150rpx;
+  background-color: #fff;
+}
+.top .logo {
+  width: 100rpx;
+  height: 100rpx;
+}
+.top .name {
+  margin-left: 20rpx;
+}
+.nav {
+  margin: 20rpx 0;
+  background-color: #fff;
+  height: 120rpx;
+}
+.nav .item {
+  font-size: 30rpx;
+  color: #666;
+  line-height: 60rpx;
+}
+.nav .item.on {
+  color: #333;
+  border-bottom: 1rpx solid #333;
+}
+.eastArea {
+  background-color: #fff;
+}
+.eastArea .title {
+  line-height: 100rpx;
+  text-align: center;
+  font-size: 36rpx;
+}
+.eastArea .list {
+  padding: 0 30rpx;
+  white-space: nowrap;
+}
+.eastArea .list .item {
+  width: 690rpx;
+  display: inline-block;
+}
+.eastArea .list .item .img {
+  width: 690rpx;
+  height: 300rpx;
+}
+.eastArea .time {
+  color: #999;
+  font-size: 26rpx;
+  padding: 0 30rpx;
+  line-height: 40rpx;
+}
+.eastArea .imgs {
+  padding: 40rpx 30rpx;
+}
+.eastArea .imgs .item {
+  width: 690rpx;
+}
+.eastArea .imgs .item .img {
+  width: 690rpx;
+}
+.list .item {
+  padding: 20rpx 30rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+.list .item .avatar {
+  width: 90rpx;
+  height: 90rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+.list .item .infos {
+  line-height: 40rpx;
+  font-size: 28rpx;
+}
+.reply .item {
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+  margin-bottom: 20rpx;
+}
+.reply .item .userInfo {
+  height: 120rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.reply .item .userInfo .avatar {
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.reply .item .userInfo .infos .nickname {
+  font-size: 30rpx;
+  color: #333;
+}
+.reply .item .userInfo .infos .addtime {
+  margin-top: 10rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.reply .item .content {
+  font-size: 28rpx;
+  padding-left: 100rpx;
+}
+.submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  background-color: #fff;
+}

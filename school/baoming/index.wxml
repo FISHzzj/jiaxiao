@@ -1,0 +1,9 @@
+<!--school/baoming/index.wxml-->
+<view class="eastArea" >
+  <view class="imgs" bindtap="gopay">
+    <view class="item" wx:for="{{guide_img}}" wx:key="{{index}}">
+      <image mode="widthFix" class="img" src="{{item}}"></image>
+    </view>
+  </view>
+
+</view>

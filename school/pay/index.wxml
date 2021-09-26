@@ -1,0 +1,101 @@
+<!--school/pay/index.wxml-->
+<!-- <text>school/pay/index.wxml</text> -->
+<!-- <loading wx:if="{{!show}}">加载中...</loading> -->
+<!-- <text>222222</text> -->
+<view class="page" >
+    <view class="fui-cell-group">
+        <view class="fui-cell">
+            <view class="fui-cell-label">价格</view>
+            <view class="fui-cell-info">
+                <input bindinput="onChange" class="fui-input" data-type="price" placeholder="价格" value="{{detail.price}}"></input>
+            </view>
+        </view>
+        <view class="fui-cell">
+            <view class="fui-cell-label">姓名</view>
+            <view class="fui-cell-info">
+                <input bindinput="onChange" class="fui-input" data-type="username" placeholder="姓名" value="{{detail.username}}"></input>
+            </view>
+        </view>
+        <view class="fui-cell">
+            <view class="fui-cell-label">联系电话</view>
+            <view class="fui-cell-info">
+                <input bindinput="onChange" class="fui-input" data-type="mobile" placeholder="联系电话" type="number" value="{{detail.mobile}}"></input>
+            </view>
+        </view>
+        <!-- <view class="fui-cell">
+            <view class="fui-cell-label">所在地区</view>
+            <view bindtap="selectArea" class="fui-cell-info" data-area="{{detail.province}} {{detail.city}} {{detail.area}}">{{!detail.province||!detail.city?'请选择所在地区':detail.province+' '+detail.city+' '+detail.area}}</view>
+        </view>
+        <view class="fui-cell" wx:if="{{street.length>0}}">
+            <view class="fui-cell-label">所在街道</view>
+            <view class="fui-cell-info">
+                <picker bindchange="onChange" data-type="street" range="{{street}}" rangeKey="name" value="{{streetIndex||0}}">
+                    <view class="picker"> {{detail.street||'请选择街道'}}</view>
+                </picker>
+            </view>
+        </view> -->
+        <view class="fui-cell">
+            <view class="fui-cell-label">详细地址</view>
+            <view class="fui-cell-info">
+                <input bindinput="onChange" class="fui-input" data-type="area" placeholder="街道，楼牌号等" value="{{detail.area}}"></input>
+            </view>
+        </view>
+        <view class="fui-cell">
+          <view class="fui-cell-label">备注</view>
+          <view class="fui-cell-info">
+              <input bindinput="onChange" class="fui-input" data-type="remark" placeholder="备注" value="{{detail.remark}}"></input>
+          </view>
+        </view>
+      
+        <view class="fui-cell"  wx:if="{{zhifubao}}">
+            <view class="fui-cell-label">上传凭证</view>
+            <view class="fui-images fui-images-sm">
+                <image catchtap="upload" class="image image-sm" data-index="{{index}}" data-type="image-preview" src="{{item}}" wx:for="{{imgs}}" wx:key="{{index}}">
+                    <text catchtap="upload" class="image-remove" data-index="{{index}}" data-type="image-remove">
+                        <text class="icox icox-close"></text>
+                    </text>
+                </image>
+            </view>
+            <view catchtap="upload" class="fui-uploader fui-uploader-sm" data-type="image"></view>
+            <view class="fui-cell-info"></view>
+        </view>
+        <view class="fui-cell remark subBtn"  wx:if="{{zhifubao}}">
+          <view bindtap="tijiao" class="intelligenceSubmit">提交</view>
+        </view>
+    </view>
+    <view class="fui-list-group">
+        <view bindtap="Submitpay" class="fui-list" data-type="wechat" >
+            <view class="fui-list-media">
+                <image class="round" src="/static/images/icon-white/wx.png"></image>
+            </view>
+            <view class="fui-list-inner">
+                <view class="row">
+                    <view class="row-text">微信支付</view>
+                </view>
+                <view class="subtitle">
+                    <image alt="" src="/static/images/icon-white/safe.png" style="height: 32rpx;width: 32rpx;vertical-align: text-bottom"></image>微信安全支付</view>
+            </view>
+            <view class="angle"></view>
+        </view>
+        <view bindtap="zhifupay" class="fui-list" data-type="zhifupay" >
+            <!-- <view class="fui-list-media">
+                <image class="round" src="/static/images/icon-white/wx.png"></image>
+            </view> -->
+            <view class="fui-cell-icon">
+                <text class="icox icox-zhifubao" style="color: #168fea;font-size: 90rpx;margin-right: 20rpx;"></text>
+            </view>
+            <view class="fui-list-inner">
+                <view class="row">
+                    <view class="row-text">支付宝支付</view>
+                </view>
+                <view class="subtitle">
+                    <image alt="" src="/static/images/icon-white/safe.png" style="height: 32rpx;width: 32rpx;vertical-align: text-bottom"></image>支付宝安全支付</view>
+            </view>
+            <view class="angle"></view>
+        </view>
+    </view>
+    <view class="zhifubao" wx:if="{{zhifubao}}"><image src="{{alipaycode}}" alt=""></image></view>
+    <!-- <view class="zhifubao" wx:if="{{zhifubao}}"><image src="/static/images/icon-white/wx.png" alt=""></image></view> -->
+
+</view>
+
